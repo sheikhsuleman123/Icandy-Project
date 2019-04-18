@@ -1,35 +1,37 @@
 import React, {Component} from 'react';
-import { Image, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import { Image, Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity} from 'react-native';
 import { styles } from './styles';
+
+import { TextField } from 'react-native-material-textfield';
 
 
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source = {require('../assets/images/logo.png')}/>
       </View>
       
         <View style={styles.childContainer}>
-        <TextInput
+        <TextField
                 style={styles.loginField}
-                placeholder="Email"
-                placeholderTextColor = "#fff"
-                textContentType="password"
+                label="Enter User Name"
+                textColor = "black"
+                baseColor="white"
               > 
-        </TextInput>
+        </TextField>
 
         <Text style={styles.fieldText}>Remind Me</Text>
 
-        <TextInput
+        <TextField
                 style={styles.loginField}
-                placeholder="Password"
-                placeholderTextColor = "#fff"
-                textContentType="password"
+                label="Enter Password"
+                textColor = "black"         
+                baseColor="white"
                 secureTextEntry={true}
               > 
-        </TextInput>
+        </TextField>
 
         <View style={[styles.row, styles.rowItem]}>
         <Text>forgot password</Text>
@@ -49,7 +51,7 @@ export default class App extends Component {
             <Text style={styles.signupText}>Signup</Text>
           </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }

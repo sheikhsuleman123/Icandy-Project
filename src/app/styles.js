@@ -10,14 +10,7 @@ export const styles={
       width: '90%',
     },
     loginField: {
-      fontSize: 15,
-      marginVertical: 10,
-      height: 40,
-      borderWidth: 1,
-      borderColor: '#87CEEB',
-      padding: 10,
-      borderRadius: 5,
-      backgroundColor: '#48D1CC',
+      padding: 5,
     },
     instructions: {
       textAlign: 'center',
@@ -27,7 +20,7 @@ export const styles={
       backgroundColor: '#FA5882',
       borderColor: '#FA5882',
       marginVertical: 20,
-      color: 'white',
+      color: '#fff',
       padding: 10,
       borderRadius: 5,
     },
@@ -48,12 +41,11 @@ export const styles={
 
     },
     fieldText: {
-      marginVertical: 2,
+      // marginVertical: 5,
       textAlign: 'left'
     },
     rowItem: {
       justifyContent: 'space-between',
-      marginVertical: 5,
     },
     row: {
       flexDirection: 'row',
@@ -66,26 +58,20 @@ export const styles={
       fontWeight: 'bold',
       marginLeft: 3,
     },
-    imageBox: {
-      width: 100,
-      height: 100,
-      marginVertical: 20,
-
-    },
     logoContainer: {
-      width: 150,
-      height: 150,
-      borderWidth: 0,
-      marginBottom: 30,
-
+      height:150,
+      width:150,
+      borderWidth:0,
+      marginBottom:30,
     },
     logo: {
-      flex: 1,
+      flex:1,
       width: null,
-      alignSelf: 'stretch',
-      borderColor: '#0B0B61',
-      borderWidth: 1,
-      borderRadius: 72,
+      alignSelf:'stretch',
+      borderWidth:1,
+      borderColor:'#000000',
+      borderRadius:72,
+
     },
 }
 
