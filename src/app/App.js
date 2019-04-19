@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import { Image, Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity} from 'react-native';
+import { Image,Alert, Text, View,KeyboardAvoidingView, TouchableOpacity} from 'react-native';
 import { styles } from './styles';
 
 import { TextField } from 'react-native-material-textfield';
-
+import CheckBox from 'react-native-check-box'
 
 export default class App extends Component {
   render() {
@@ -17,8 +17,16 @@ export default class App extends Component {
         <TextField
                 style={styles.loginField}
                 label="Enter User Name"
-                textColor = "black"
-                baseColor="white"
+                // fontSize={20}
+                // lableFontSize={15}
+                // labelHeight={20}
+                textColor = "#000000"
+                baseColor="#0B0B61"    
+                // multiline={ true}   
+                // titleFontSize={20}
+                // title="this is title"
+                lineWidth={1}
+                labelPadding={1}        
               > 
         </TextField>
 
@@ -27,18 +35,32 @@ export default class App extends Component {
         <TextField
                 style={styles.loginField}
                 label="Enter Password"
-                textColor = "black"         
-                baseColor="white"
+                characterRestriction={8}
+                maxLength={8}
+                // error="type 8 digit only"
+                // errorColor="#ff0000"
+                textColor = "#000000"     
+                baseColor="#0B0B61" 
+                lineWidth={1}
+                labelPadding={1}                  
                 secureTextEntry={true}
               > 
         </TextField>
 
-        <View style={[styles.row, styles.rowItem]}>
-        <Text>forgot password</Text>
-        <Text>Remember Me</Text>
+        <View style={styles.row}>
 
+        <Text>forgot password</Text>
+<View>
+    <CheckBox
+         style={{flex: 1, padding: 10,width:300,marginLeft:130}}
+         onClick={()=>{
+         Alert.alert('You Remembered');
+         }}
+        rightText={"Remember Me"}
+        />
         </View>
-               
+  </View>
+                   
         <TouchableOpacity style={styles.loginButton}>
                 <Text style={styles.loginTitle}> Login</Text>
         </TouchableOpacity>

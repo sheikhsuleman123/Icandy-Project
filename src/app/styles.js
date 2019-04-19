@@ -73,6 +73,7 @@ export const styles={
       borderRadius:72,
 
     },
+    
 }
 
   
