@@ -49,7 +49,7 @@ export default class App extends Component {
 
         <View style={styles.row}>
 
-        <Text>forgot password</Text>
+        <Text>forgot password!</Text>
 <View>
     <CheckBox
          style={{flex: 1, padding: 10,width:300,marginLeft:130}}
