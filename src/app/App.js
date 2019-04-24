@@ -52,7 +52,7 @@ export default class App extends Component {
         <Text>forgot password!</Text>
 <View>
     <CheckBox
-         style={{flex: 1, padding: 10,width:300,marginLeft:130}}
+         style={{flex: 1, padding: 5,width:300,marginLeft:100}}
          onClick={()=>{
          Alert.alert('You Remembered');
          }}

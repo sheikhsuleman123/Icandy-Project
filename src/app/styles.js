@@ -2,9 +2,11 @@ export const styles={
 
     container: {
       flex: 1,
+      backgroundColor: '#40E0D0',
+    },
+    innerContainer: {
       justifyContent: 'center',
        alignItems: 'center',
-      backgroundColor: '#40E0D0',
     },
     childContainer: {
       width: '90%',
@@ -62,7 +64,7 @@ export const styles={
       height:150,
       width:150,
       borderWidth:0,
-      marginBottom:30,
+      marginTop:30,
     },
     logo: {
       flex:1,
