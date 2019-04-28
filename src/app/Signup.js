@@ -1,9 +1,12 @@
 import React , { Component} from 'react';
-import { Text, View , ScrollView,Image, Alert,TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-
+import { Text, View , ScrollView,Image, Alert,TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import {TextField} from 'react-native-material-textfield';
 
 import { styles } from './styles';
+
+import showImage from '../assets/images/showImage.png';
+import hideImage from '../assets/images/hide.png';
+
 
 class Signup extends Component {
   constructor() {
@@ -19,6 +22,8 @@ class Signup extends Component {
        Phone : '' ,
        Password  : '',
        ConfirmPassword: '',
+       showEye: false,
+       showPass: true,
      }
   }
 
@@ -49,6 +54,17 @@ class Signup extends Component {
       }
     }
 
+    showPassword = () => {
+      // Alert.alert('in function')
+      this.setState( prevState => (
+        {
+        
+          showEye :  !prevState.showEye,
+          showPass : !prevState.showPass
+        }
+      ));
+    }
+
     render() {
         return (
       
@@ -62,6 +78,7 @@ class Signup extends Component {
    
       <TextField
                 style={styles.loginField}
+               
                 label="Firstname"
                 fontSize={20}
                 textColor = "#000000"
@@ -78,8 +95,8 @@ class Signup extends Component {
                  textColor = "#000000"
                 baseColor="#0B0B61"    
                  lineWidth={1}
+                 labelPadding={1} 
                  value={this.state.lastName}
-                labelPadding={1} 
                 onChangeText={(lname) => this.setState({ lastName: lname }) }       
                    
               />
@@ -94,7 +111,7 @@ class Signup extends Component {
               lineWidth={1}
               labelPadding={1}       
               value={this.state.Email} 
-              // onBlur={(email) => this.validate(email)}    
+              onBlur={(email) => this.validate(email)}    
               onChangeText={(email) => this.setState({ Email: email }) }       
             
             />
@@ -111,26 +128,45 @@ class Signup extends Component {
             onChangeText={(phone) => this.setState({ Phone: phone }) }       
             
           />
-           <TextField
-                style={styles.loginField}
+    {/* <View style={{flexDirection:'row'}}>      
+         <View style={{width:'90%'}}> */}
+           
+             {/* <View>
+             {
+                  this.state.Password !== '' ?
+                  this.state.showEye ?
+                  <TouchableWithoutFeedback onPress={this.showPassword}>
+                   <Image source={showImage} style={{alignSelf:'flex-end',
+                    marginTop:40 ,
+                    width:30,height:30}} />
+                  </TouchableWithoutFeedback>
+                  :
+                  <TouchableWithoutFeedback onPress={this.showPassword} >
+                     <Image source={hideImage} style={{alignSelf:'flex-end',marginTop:40,
+                     width:30,height:30}} />
+                  </TouchableWithoutFeedback>
+                 :
+                <Text> </Text>  
+              } 
+              </View> */}
+      
+      <TextField
+                style={[styles.loginField , {marginBottom:-30}]}
                 label="Enter Password"
                 characterRestriction={8}
                 maxLength={8}
                 fontSize={20}
-                // error="type 8 digit only"
-                // errorColor="#ff0000"
                 textColor = "#000000"     
                 baseColor="#0B0B61" 
                 lineWidth={1}
                 labelPadding={1}                  
-                secureTextEntry={true}
+                secureTextEntry={this.state.showPass}
                 value={this.state.Password}
                 onChangeText={(password) => this.setState({ Password: password }) }       
+              />
             
-              /> 
-              
-           <TextField
-                style={styles.loginField}
+            <TextField
+                style={styles.loginField }
                 label="Confirm Password"
                 maxLength={8}
                 fontSize={20}
@@ -139,7 +175,7 @@ class Signup extends Component {
                 lineWidth={1}
                 labelPadding={1}                  
                 secureTextEntry={true}
-                // onBlur={this.ConfPassword}
+                onBlur={this.ConfPassword}
                 value={this.state.ConfirmPassword}
                 onChangeText={(Cpassword) => this.setState({ ConfirmPassword: Cpassword }) }       
             
